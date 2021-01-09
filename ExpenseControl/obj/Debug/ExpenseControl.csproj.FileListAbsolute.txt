@@ -1,0 +1,10 @@
+C:\Users\wrilliam\source\repos\ExpenseControl\ExpenseControl\bin\Debug\ExpenseControl.exe.config
+C:\Users\wrilliam\source\repos\ExpenseControl\ExpenseControl\bin\Debug\ExpenseControl.exe
+C:\Users\wrilliam\source\repos\ExpenseControl\ExpenseControl\bin\Debug\ExpenseControl.pdb
+C:\Users\wrilliam\source\repos\ExpenseControl\ExpenseControl\obj\Debug\ExpenseControl.csprojAssemblyReference.cache
+C:\Users\wrilliam\source\repos\ExpenseControl\ExpenseControl\obj\Debug\ExpenseControl.FrmMain.resources
+C:\Users\wrilliam\source\repos\ExpenseControl\ExpenseControl\obj\Debug\ExpenseControl.Properties.Resources.resources
+C:\Users\wrilliam\source\repos\ExpenseControl\ExpenseControl\obj\Debug\ExpenseControl.csproj.GenerateResource.cache
+C:\Users\wrilliam\source\repos\ExpenseControl\ExpenseControl\obj\Debug\ExpenseControl.csproj.CoreCompileInputs.cache
+C:\Users\wrilliam\source\repos\ExpenseControl\ExpenseControl\obj\Debug\ExpenseControl.exe
+C:\Users\wrilliam\source\repos\ExpenseControl\ExpenseControl\obj\Debug\ExpenseControl.pdb
