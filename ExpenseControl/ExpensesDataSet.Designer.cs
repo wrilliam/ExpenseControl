@@ -846,7 +846,7 @@ namespace ExpenseControl.ExpensesDataSetTableAdapters {
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Bills] ([Description], [Date], [Category], [Value]) VALUES (@D" +
                 "escription, @Date, @Category, @Value);\r\nSELECT Id, Description, Date, Category, " +
-                "Value FROM Bills WHERE (Id = SCOPE_IDENTITY())";
+                "Value FROM Bills WHERE (Id = SCOPE_IDENTITY()) ORDER BY Date DESC";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -855,7 +855,7 @@ namespace ExpenseControl.ExpensesDataSetTableAdapters {
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Bills] SET [Description] = @Description, [Date] = @Date, [Category] = @Category, [Value] = @Value WHERE (([Id] = @Original_Id) AND ([Description] = @Original_Description) AND ([Date] = @Original_Date) AND ([Category] = @Original_Category) AND ([Value] = @Original_Value));
-SELECT Id, Description, Date, Category, Value FROM Bills WHERE (Id = @Id)";
+SELECT Id, Description, Date, Category, Value FROM Bills WHERE (Id = @Id) ORDER BY Date DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -882,7 +882,7 @@ SELECT Id, Description, Date, Category, Value FROM Bills WHERE (Id = @Id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Description, Date, Category, Value FROM dbo.Bills";
+            this._commandCollection[0].CommandText = "SELECT Id, Description, Date, Category, Value FROM dbo.Bills ORDER BY Date DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

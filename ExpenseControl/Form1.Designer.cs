@@ -36,10 +36,8 @@ namespace ExpenseControl
             System.Windows.Forms.Label dateLabel;
             System.Windows.Forms.Label categoryLabel;
             System.Windows.Forms.Label valueLabel;
-            this.expensesDataSet = new ExpenseControl.ExpensesDataSet();
-            this.billsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.billsTableAdapter = new ExpenseControl.ExpensesDataSetTableAdapters.BillsTableAdapter();
-            this.tableAdapterManager = new ExpenseControl.ExpensesDataSetTableAdapters.TableAdapterManager();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.billsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -58,36 +56,27 @@ namespace ExpenseControl
             this.dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.categoryTextBox = new System.Windows.Forms.TextBox();
             this.valueTextBox = new System.Windows.Forms.TextBox();
+            this.billsDataGridView = new System.Windows.Forms.DataGridView();
+            this.billsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.expensesDataSet = new ExpenseControl.ExpensesDataSet();
+            this.billsTableAdapter = new ExpenseControl.ExpensesDataSetTableAdapters.BillsTableAdapter();
+            this.tableAdapterManager = new ExpenseControl.ExpensesDataSetTableAdapters.TableAdapterManager();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             idLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             dateLabel = new System.Windows.Forms.Label();
             categoryLabel = new System.Windows.Forms.Label();
             valueLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.expensesDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.billsBindingNavigator)).BeginInit();
             this.billsBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.billsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensesDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // expensesDataSet
-            // 
-            this.expensesDataSet.DataSetName = "ExpensesDataSet";
-            this.expensesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // billsBindingSource
-            // 
-            this.billsBindingSource.DataMember = "Bills";
-            this.billsBindingSource.DataSource = this.expensesDataSet;
-            // 
-            // billsTableAdapter
-            // 
-            this.billsTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BillsTableAdapter = this.billsTableAdapter;
-            this.tableAdapterManager.UpdateOrder = ExpenseControl.ExpensesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // billsBindingNavigator
             // 
@@ -115,7 +104,7 @@ namespace ExpenseControl
             this.billsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.billsBindingNavigator.Name = "billsBindingNavigator";
             this.billsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.billsBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.billsBindingNavigator.Size = new System.Drawing.Size(531, 25);
             this.billsBindingNavigator.TabIndex = 0;
             this.billsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -154,14 +143,14 @@ namespace ExpenseControl
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 15);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -169,7 +158,7 @@ namespace ExpenseControl
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -178,13 +167,13 @@ namespace ExpenseControl
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -201,7 +190,7 @@ namespace ExpenseControl
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // billsBindingNavigatorSaveItem
@@ -209,7 +198,7 @@ namespace ExpenseControl
             this.billsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.billsBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("billsBindingNavigatorSaveItem.Image")));
             this.billsBindingNavigatorSaveItem.Name = "billsBindingNavigatorSaveItem";
-            this.billsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.billsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.billsBindingNavigatorSaveItem.Text = "Save Data";
             this.billsBindingNavigatorSaveItem.Click += new System.EventHandler(this.billsBindingNavigatorSaveItem_Click);
             // 
@@ -233,7 +222,7 @@ namespace ExpenseControl
             // descriptionLabel
             // 
             descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(3, 57);
+            descriptionLabel.Location = new System.Drawing.Point(278, 31);
             descriptionLabel.Name = "descriptionLabel";
             descriptionLabel.Size = new System.Drawing.Size(63, 13);
             descriptionLabel.TabIndex = 3;
@@ -242,9 +231,10 @@ namespace ExpenseControl
             // descriptionTextBox
             // 
             this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.billsBindingSource, "Description", true));
-            this.descriptionTextBox.Location = new System.Drawing.Point(72, 54);
+            this.descriptionTextBox.Location = new System.Drawing.Point(281, 47);
+            this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(200, 20);
+            this.descriptionTextBox.Size = new System.Drawing.Size(238, 53);
             this.descriptionTextBox.TabIndex = 4;
             // 
             // dateLabel
@@ -268,7 +258,7 @@ namespace ExpenseControl
             // categoryLabel
             // 
             categoryLabel.AutoSize = true;
-            categoryLabel.Location = new System.Drawing.Point(14, 109);
+            categoryLabel.Location = new System.Drawing.Point(14, 57);
             categoryLabel.Name = "categoryLabel";
             categoryLabel.Size = new System.Drawing.Size(52, 13);
             categoryLabel.TabIndex = 7;
@@ -277,7 +267,7 @@ namespace ExpenseControl
             // categoryTextBox
             // 
             this.categoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.billsBindingSource, "Category", true));
-            this.categoryTextBox.Location = new System.Drawing.Point(72, 106);
+            this.categoryTextBox.Location = new System.Drawing.Point(72, 54);
             this.categoryTextBox.Name = "categoryTextBox";
             this.categoryTextBox.Size = new System.Drawing.Size(200, 20);
             this.categoryTextBox.TabIndex = 8;
@@ -299,11 +289,98 @@ namespace ExpenseControl
             this.valueTextBox.Size = new System.Drawing.Size(59, 20);
             this.valueTextBox.TabIndex = 10;
             // 
+            // billsDataGridView
+            // 
+            this.billsDataGridView.AllowUserToAddRows = false;
+            this.billsDataGridView.AllowUserToDeleteRows = false;
+            this.billsDataGridView.AutoGenerateColumns = false;
+            this.billsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.billsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.billsDataGridView.DataSource = this.billsBindingSource;
+            this.billsDataGridView.Location = new System.Drawing.Point(12, 106);
+            this.billsDataGridView.Name = "billsDataGridView";
+            this.billsDataGridView.ReadOnly = true;
+            this.billsDataGridView.RowHeadersVisible = false;
+            this.billsDataGridView.Size = new System.Drawing.Size(507, 337);
+            this.billsDataGridView.TabIndex = 11;
+            // 
+            // billsBindingSource
+            // 
+            this.billsBindingSource.DataMember = "Bills";
+            this.billsBindingSource.DataSource = this.expensesDataSet;
+            // 
+            // expensesDataSet
+            // 
+            this.expensesDataSet.DataSetName = "ExpensesDataSet";
+            this.expensesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // billsTableAdapter
+            // 
+            this.billsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BillsTableAdapter = this.billsTableAdapter;
+            this.tableAdapterManager.UpdateOrder = ExpenseControl.ExpensesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Code";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 55;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 180;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Date";
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Date";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 82;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Category";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Category";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Value";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Value";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 77;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(531, 455);
+            this.Controls.Add(this.billsDataGridView);
             this.Controls.Add(idLabel);
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(descriptionLabel);
@@ -319,11 +396,12 @@ namespace ExpenseControl
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.expensesDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.billsBindingNavigator)).EndInit();
             this.billsBindingNavigator.ResumeLayout(false);
             this.billsBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.billsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensesDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,6 +431,12 @@ namespace ExpenseControl
         private System.Windows.Forms.DateTimePicker dateDateTimePicker;
         private System.Windows.Forms.TextBox categoryTextBox;
         private System.Windows.Forms.TextBox valueTextBox;
+        private System.Windows.Forms.DataGridView billsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
 
