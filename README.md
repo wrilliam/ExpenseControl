@@ -1,2 +1,5 @@
 # ExpenseControl
-A draft of an expense control system in C#.
+A basic expense control system.
+Language: C#
+IDE: Microsoft Visual Studio 2019
+DBMS: Microsoft SQL Server
